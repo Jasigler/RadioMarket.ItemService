@@ -12,7 +12,6 @@
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
 * [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Usage](#usage)
 * [Roadmap](#roadmap)
@@ -44,16 +43,6 @@ In addition to .NET Core, you will need a local Postgres instance. These instruc
 
 If you are on windows 10, I highly recommend using the WSL2 docker engine as the overall performance is greatly improved over the hyper-v engine by utilizing an actual local linux kernel. The WSL2 setup instructions are [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10), and theWSL2 docker instructions are [here](https://docs.docker.com/docker-for-windows/wsl/)
 
-
-
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-```sh
-npm install npm@latest -g
-```
 
 ### Installation
 
