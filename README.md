@@ -115,25 +115,15 @@ Examples of requests and their responses are shown in Postman. Note that the `It
 
 
 
-
-
-
-
-
 ## Roadmap
 
 This is an ongoing project.
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/jasigler/Radiomarket.ItemService/issues) for a list of proposed features (and known issues).
 
 
-
-
-
-<!-- CONTACT -->
 ## Contact
 
 [@that_sigler](https://twitter.com/that_sigler) - jason.sigler@outlook.com
 
-Project Link: [https://github.com/jasigler/repo_name](https://github.com/your_username/repo_name)
 
 
