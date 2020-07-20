@@ -89,16 +89,28 @@ Examples of requests and their responses are shown in Postman. Note that the `It
 
 
 ##### Get all items:
+![Get all items](https://github.com/Jasigler/RadioMarket.ItemService/blob/master/images/get_all_items.PNG)
+
 ##### Get items by id:
+![Get an item by ID](https://github.com/Jasigler/RadioMarket.ItemService/blob/master/images/get_item_by_id.PNG)
+
 ##### Get items by category:
+![Get an item by category](https://github.com/Jasigler/RadioMarket.ItemService/blob/master/images/get_item_by_category.PNG)
+
 ##### Get items by owner (user):
+![Get an item by owner](https://github.com/Jasigler/RadioMarket.ItemService/blob/master/images/get_item_by_user.PNG)
+
 ##### Get items by status:
-##### Get items by condition:
+![Get an item by status](https://github.com/Jasigler/RadioMarket.ItemService/blob/master/images/get_item_by_status.PNG)
+
 ##### Create an item:
+![Create a new item](https://github.com/Jasigler/RadioMarket.ItemService/blob/master/images/create_item.PNG)
 
 ##### Get all active categories:
+![Get all categories](https://github.com/Jasigler/RadioMarket.ItemService/blob/master/images/get_categories.PNG)
+
 ##### Create a new Category:
-##### Patch an existing category
+![Create a new category](https://github.com/Jasigler/RadioMarket.ItemService/blob/master/images/add_category.PNG)
 
 
 
