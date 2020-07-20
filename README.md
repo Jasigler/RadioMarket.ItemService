@@ -48,7 +48,7 @@ If you are on windows 10, I highly recommend using the WSL2 docker engine as the
 
 1. Create a postgres container (linux)
 ```sh
-docker run --name radiomarket -e POSTGRES_PASSWORD="YourPWD" -d postgres
+docker run --name radiomarket -p 5432:5432 -e POSTGRES_PASSWORD="YourPWD" -d postgres
 ```
 2. Run The DB migration scripts
 ```sh
