@@ -40,7 +40,6 @@ namespace Radiomarket.Itemservice
             });
             services.AddAutoMapper(typeof(Startup));
             services.TryAddScoped<IItemRepository, ItemRepository>();
-            services.TryAddScoped<ICategoryRepository, CategoryRepository>();
             services.AddHealthChecks()
                 .AddCheck("Default", () =>
                 HealthCheckResult.Healthy("Healthy"), tags: new[] { "default" });

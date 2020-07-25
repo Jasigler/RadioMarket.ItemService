@@ -7,7 +7,6 @@ namespace DataLayer.Context
     {
         public ItemContext(DbContextOptions<ItemContext> options) : base(options) { }
 
-        public DbSet<Category> Categories { get; set; }
         public DbSet<Item> Items { get; set; }
     }
 }

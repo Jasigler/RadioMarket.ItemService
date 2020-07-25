@@ -20,7 +20,7 @@
     "Radiomarket.Itemservice": {
       "commandName": "Project",
       "launchBrowser": false,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "/api",
       "applicationUrl": "https://localhost:1720;http://localhost:1710",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

@@ -2,7 +2,7 @@
   <h3 align="center">RadioMarket Item Service API</h3>
 
   <p align="center">
-    Item/category microservice for my e-commerce auction project. 
+    Item microservice for my e-commerce auction project. 
 </p>
 
 
@@ -21,7 +21,7 @@
 
 ## About The Project
 
-This is the item/category microservice for my larger 'Radiomarket' project. This service performs basic CRUD operations for 'auction items' and their categories. 
+This is the item microservice for my larger 'Radiomarket' project. This service performs basic CRUD operations for 'auction items'.
 
  In a real-world production environment, it may be beneficial to split this solution into discrete read/write endpoints as the number of read operations will significantly outnumber write operations. For the scope of this project, however, it is not feasible to maintain more than one repo per service or repeat code across projects in a solution. Handling of this seperation will then be managed by a load balancer (Traefik, etc.);
 
@@ -94,13 +94,6 @@ Examples of requests and their responses are shown in Postman. Note that the `It
 
 ##### Create an item:
 ![Create a new item](https://github.com/Jasigler/RadioMarket.ItemService/blob/master/images/create_item.PNG)
-
-##### Get all active categories:
-![Get all categories](https://github.com/Jasigler/RadioMarket.ItemService/blob/master/images/get_categories.PNG)
-
-##### Create a new Category:
-![Create a new category](https://github.com/Jasigler/RadioMarket.ItemService/blob/master/images/add_category.PNG)
-
 
 
 
