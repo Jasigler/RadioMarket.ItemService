@@ -15,5 +15,6 @@ namespace Models.Interfaces
         public Task<IEnumerable<Item>> GetItemByStatus(int statusCode);
         public Task<IEnumerable<Item>> GetItemByCondition(int conditionCode);
         public Task<ReqResult> AddNewItem(ItemDTO item);
+        public Task<int> GetItemCount();
     }
 }

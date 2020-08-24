@@ -73,6 +73,12 @@ namespace Services
             return ReqResult.Success;
         }
 
+        public async Task<int> GetItemCount()
+        {
+            return await _context.Items
+                .CountAsync();
+        }
+
         public bool Save()
         {
             return (_context.SaveChanges() >= 0);

@@ -106,5 +106,13 @@ namespace Radiomarket.Itemservice.Controllers
             else return StatusCode(500);
         }
 
+        [HttpGet("count")]
+
+        public async Task<ActionResult<int>> GetItemCount()
+        {
+            var count = await _repository.GetItemCount();
+            return Ok(count);
+        }
+
     }
 }
