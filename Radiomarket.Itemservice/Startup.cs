@@ -9,6 +9,9 @@ using AutoMapper;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Models.Interfaces;
 using Services;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using HealthChecks.UI.Client;
+using HealthCheck.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 namespace Radiomarket.Itemservice
@@ -33,9 +36,18 @@ namespace Radiomarket.Itemservice
             });
             services.AddAutoMapper(typeof(Startup));
             services.TryAddScoped<IItemRepository, ItemRepository>();
+            services.AddHealthChecksUI(options =>
+            {
+                options.AddHealthCheckEndpoint("main", "https://localhost:92/health");
+            }).AddInMemoryStorage();
+
             services.AddHealthChecks()
-                .AddCheck("Default", () =>
-                HealthCheckResult.Healthy("Healthy"), tags: new[] { "default" });
+                .AddCheck<MemoryHealthCheck>("memory", tags: new[] { "memory" })
+                .AddNpgSql(Configuration.GetConnectionString("ItemConnection"),
+                    healthQuery: "SELECT 1",
+                    name: "sql",
+                    failureStatus: HealthStatus.Unhealthy,
+                    tags: new[] { "database" });
 
             services.AddCors(options =>
             {
@@ -71,7 +83,12 @@ namespace Radiomarket.Itemservice
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHealthChecks("/health");
+                endpoints.MapHealthChecksUI();
+                endpoints.MapHealthChecks("health", new HealthCheckOptions()
+                {
+                    Predicate = _ => true,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+                });
                 
             });
         }
