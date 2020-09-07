@@ -2,6 +2,9 @@
 using DataLayer.Context;
 using DataLayer.DTOs;
 using DataLayer.Entities;
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using Microsoft.EntityFrameworkCore;
 using Models.Enums;
 using Models.Interfaces;
@@ -10,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http.ModelBinding;
 
 namespace Services
 {
@@ -29,7 +33,7 @@ namespace Services
             return await _context.Items.ToListAsync();
         }
 
-        public async Task<Item> GetItemById(int itemId)
+        public async Task<Item> GetItemById(Guid itemId)
         {
             return await _context.Items
                 .Where(item => item.item_id == itemId)
@@ -71,6 +75,23 @@ namespace Services
             await _context.SaveChangesAsync();
 
             return ReqResult.Success;
+        }
+
+        public async Task<ReqResult> UpdateItem(Guid itemToPatch, [FromBody] JsonPatchDocument<Item> patchDocument)
+        {
+            var target = await _context.Items
+                .Where(item => item.item_id == itemToPatch)
+                .FirstOrDefaultAsync();
+            
+            if (target == null)
+            {
+                return ReqResult.NotFound;
+            }
+            patchDocument.ApplyTo(target);
+
+            var result = new ObjectResult(target);
+            return ReqResult.Success;
+            
         }
 
         public async Task<int> GetItemCount()

@@ -1,5 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.SqlTypes;
 
 namespace DataLayer.Entities
 {
@@ -7,7 +9,7 @@ namespace DataLayer.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int item_id { get; set; }
+        public Guid item_id { get; set; }
 
         [Required]
         public int item_owner { get; set; }
@@ -31,7 +33,7 @@ namespace DataLayer.Entities
 
         [Required]
         [MaxLength(10)]
-        public string price { get; set; }
+        public decimal price { get; set; }
 
     }
 }

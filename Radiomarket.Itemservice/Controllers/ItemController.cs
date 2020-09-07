@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using DataLayer.DTOs;
 using DataLayer.Entities;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Models.Enums;
 using Models.Interfaces;
@@ -35,7 +36,7 @@ namespace Radiomarket.Itemservice.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Item>> GetItemById(int id)
+        public async Task<ActionResult<Item>> GetItemById(Guid id)
         {
             var result = await _repository.GetItemById(id);
 
@@ -87,7 +88,7 @@ namespace Radiomarket.Itemservice.Controllers
         public async Task<ActionResult<Item>> GetItemsInCondition(int condition)
         {
             var result = await _repository.GetItemByCondition(condition);
-            if (result.Any<DataLayer.Entities.Item>())
+            if (result.Any())
             {
                 return Ok(result);
             }
@@ -104,6 +105,18 @@ namespace Radiomarket.Itemservice.Controllers
                 return StatusCode(201);
             }
             else return StatusCode(500);
+        }
+
+        [HttpPatch("{itemId}")]
+        public async Task<ActionResult<ReqResult>> UpdateItem(Guid itemId, JsonPatchDocument<Item> patchDocument)
+        {
+            var result = await _repository.UpdateItem(itemId, patchDocument);
+
+            if (result == ReqResult.NotFound)
+            {
+                return NotFound();
+            }
+            else return Ok();
         }
 
         [HttpGet("count")]

@@ -12,7 +12,7 @@ namespace DataLayer.DTOs
         public string description { get; set; }
         public int item_condition { get; set; }
         public int item_status { get; set; }
-        public string price { get; set; }
+        public decimal price { get; set; }
 
     }
 }

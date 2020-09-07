@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using HealthChecks.UI.Client;
 using HealthCheck.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace Radiomarket.Itemservice
 {
@@ -29,7 +30,7 @@ namespace Radiomarket.Itemservice
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             services.AddDbContext<ItemContext>(options =>
             {
                 options.UseNpgsql(Configuration.GetConnectionString("ItemConnection"));
