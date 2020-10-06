@@ -21,7 +21,7 @@
 
 ## About The Project
 
-This is the item microservice for my larger 'Radiomarket' project. This service performs basic CRUD operations for 'auction items'.
+This is an item microservice for an e-commerce wwebsite.
 
  In a real-world production environment, it may be beneficial to split this solution into discrete read/write endpoints as the number of read operations will significantly outnumber write operations. For the scope of this project, however, it is not feasible to maintain more than one repo per service or repeat code across projects in a solution. Handling of this seperation will then be managed by a load balancer (Traefik, etc.);
 
