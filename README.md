@@ -2,7 +2,7 @@
   <h3 align="center">RadioMarket Item Service API</h3>
 
   <p align="center">
-    Item microservice for my e-commerce auction project. 
+    Example 'item' microservice for an e-commercce website. 
 </p>
 
 
